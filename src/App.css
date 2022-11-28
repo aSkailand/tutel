@@ -11,20 +11,24 @@
   text-align: left;
   display: flex;
   flex-wrap: wrap;
-
 }
 
 h1 {
   height: 1em;
   padding: 1.5em;
   will-change: filter;
-  transition: filter 500ms; 
+  transition: filter 500ms;
 }
 h1:hover {
+  pointer-events: none;
   filter: drop-shadow(0 0 10px #646cffaa);
 }
 h1.react:hover {
   filter: drop-shadow(0 0 10px #61dafbaa);
+}
+
+.react {
+  pointer-events: none;
 }
 
 @keyframes logo-spin {
@@ -37,8 +41,8 @@ h1.react:hover {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  h1:nth-of-type(1) {
+    animation: logo-spin infinite 2s linear;
   }
 }
 
