@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { formatDuration, intervalToDuration } from "date-fns";
+import { formatDuration, intervalToDuration, format } from "date-fns";
+import { nb } from "date-fns/locale";
+
 import "./App.css";
 
 function App() {
@@ -10,15 +12,20 @@ function App() {
     end: new Date(),
   });
 
+  const Time = () => (
+    <h2>
+      {formatDuration(duration, {
+        delimiter: ", ",
+        locale: nb,
+      })}
+    </h2>
+  );
+
   return (
     <>
       <div className="App">
-        <h2>
-          {formatDuration(duration, {
-            delimiter: ", ",
-          })}
-        </h2>
-        <h1>🐢 tutel 🐢</h1>
+        <Time />
+        <h1 className="react">🐢 tutel 🐢</h1>
         <div className="card">
           <button onClick={() => setCount((count) => count + 1)}>
             tutel {count}
@@ -27,7 +34,15 @@ function App() {
       </div>
       <div className="tutel">
         {Array.from({ length: count }).map((tutel) => (
-          <p className="random" key={tutel} style={{ position: "relative", display: "flex", fontSize: Math.random() * 100 }}>
+          <p
+            className="random"
+            key={tutel}
+            style={{
+              position: "relative",
+              display: "flex",
+              fontSize: Math.random() * 100,
+            }}
+          >
             🐢
           </p>
         ))}
