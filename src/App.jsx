@@ -25,7 +25,7 @@ function App() {
     <>
       <div className="App">
         <Time />
-        <h1 className="react">🐢 tutel 🐢</h1>
+        <h1 className="react">🐢tutel🐢</h1>
         <div className="card">
           <button onClick={() => setCount((count) => count + 1)}>
             tutel {count}
