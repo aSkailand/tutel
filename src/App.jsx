@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <div className="App">
-        <div dangerouslySetInnerHTML={wttr ? { __html: wttr } : {}} />
+        <div dangerouslySetInnerHTML={wttr ? { __html: wttr } : ''} />
         <Time />
         <h1 className="react">🐢tutel🐢</h1>
         <div className="card">
