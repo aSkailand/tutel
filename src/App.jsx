@@ -3,9 +3,13 @@ import { formatDuration, intervalToDuration, format } from "date-fns";
 import { nb } from "date-fns/locale";
 
 import "./App.css";
+import { useWttr } from "./hooks/wttr";
 
 function App() {
   const [count, setCount] = useState(1);
+  const wttr = useWttr();
+
+  console.log(wttr)
 
   let duration = intervalToDuration({
     start: new Date(2022, 11, 3, 15, 0, 0),
@@ -24,6 +28,7 @@ function App() {
   return (
     <>
       <div className="App">
+      <div dangerouslySetInnerHTML={wttr ? {__html: wttr} : {}} />
         <Time />
         <h1 className="react">🐢tutel🐢</h1>
         <div className="card">
