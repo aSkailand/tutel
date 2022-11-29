@@ -9,8 +9,6 @@ function App() {
   const [count, setCount] = useState(1);
   const wttr = useWttr();
 
-  console.log(wttr);
-
   let duration = intervalToDuration({
     start: new Date(2022, 11, 3, 15, 0, 0),
     end: new Date(),
