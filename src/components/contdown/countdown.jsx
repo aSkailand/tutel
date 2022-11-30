@@ -1,6 +1,5 @@
 import { formatDuration } from "date-fns";
 import { nb } from "date-fns/locale";
-import { useEffect } from "react";
 import { useCountdown } from "../../hooks/useCountdown";
 import "./countdown.css";
 

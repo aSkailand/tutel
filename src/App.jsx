@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { Countdown } from "./components/contdown";
-import { useWttr } from "./hooks/wttr";
+import { useWttr } from "./hooks/useWttr";
 
 function App() {
   const [count, setCount] = useState(1);
