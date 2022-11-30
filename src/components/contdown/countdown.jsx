@@ -16,18 +16,16 @@ function getRandomColorString(duration) {
 export function Countdown() {
   const duration = useCountdown();
   return (
-    <marquee>
-      <h2
-        className="countdown-header"
-        style={{
-          color: getRandomColorString(duration),
-        }}
-      >
-        {formatDuration(duration, {
-          delimiter: ", ",
-          locale: nb,
-        })}
-      </h2>
-    </marquee>
+    <h2
+      className="countdown-header"
+      style={{
+        color: getRandomColorString(duration),
+      }}
+    >
+      {formatDuration(duration, {
+        delimiter: ", ",
+        locale: nb,
+      })}
+    </h2>
   );
 }
