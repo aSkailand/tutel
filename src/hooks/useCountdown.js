@@ -3,7 +3,7 @@ import { intervalToDuration } from "date-fns";
 
 function getDateCountdown() {
   return intervalToDuration({
-    start: new Date(2022, 11, 3, 15, 0, 0),
+    start: new Date(2022, 11, 2, 15, 0, 0),
     end: new Date(),
   });
 }
