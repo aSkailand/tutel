@@ -11,7 +11,7 @@ function App() {
     <>
       <div className="App">
         {typeof wttr !== "object" ? wttr : "tutel wttr 👍 ..."}
-        <Countdown />
+        <Countdown year={2023} month={3} day={1}/>
         <h1 className="react">🐢tutel🐢</h1>
         <div className="card">
           <button onClick={() => setCount((count) => count + 1)}>
@@ -25,12 +25,13 @@ function App() {
             className="random"
             key={`${tutel} ${index}`}
             style={{
-              position: "relative",
+              position: "absolute",
               display: "flex",
-              fontSize: Math.random() * 100,
+              "--start-pos": Math.floor(Math.random() * 201) - 1000 + "px",
+              fontSize: Math.random() * 50,
             }}
           >
-            🐢
+            ❄️
           </p>
         ))}
       </div>

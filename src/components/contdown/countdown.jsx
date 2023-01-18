@@ -13,8 +13,8 @@ function getRandomColorString(duration) {
   return `rgb(${rand(seconds)},${rand(seconds)},${rand(seconds)})`;
 }
 
-export function Countdown() {
-  const duration = useCountdown();
+export function Countdown({year, month, day}) {
+  const duration = useCountdown(year, month, day);
   return (
     <h2
       className="countdown-header"
