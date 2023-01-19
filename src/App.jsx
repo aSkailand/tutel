@@ -11,7 +11,7 @@ function App() {
     <>
       <div className="App">
         {typeof wttr !== "object" ? wttr : "tutel wttr 👍 ..."}
-        <Countdown year={2023} month={3} day={1}/>
+        <Countdown year={2023} month={2} day={1}/>
         <h1 className="react">🐢tutel🐢</h1>
         <div className="card">
           <button onClick={() => setCount((count) => count + 1)}>
