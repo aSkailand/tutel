@@ -22,7 +22,7 @@ export function Countdown({year, month, day}) {
         color: getRandomColorString(duration),
       }}
     >
-      {formatDuration(duration, {
+      {duration.days === 7 ? <>Fredag 😀👍</>: formatDuration(duration, {
         delimiter: ", ",
         locale: nb,
       })}

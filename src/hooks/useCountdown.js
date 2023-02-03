@@ -2,10 +2,18 @@ import { useState, useEffect, useRef } from "react";
 import { intervalToDuration } from "date-fns";
 
 function getDateCountdown(year, month, day) {
-  return intervalToDuration({
-    start: new Date(year, month, day, 12, 0, 0),
-    end: new Date(),
-  });
+  function getNextFriday(date = new Date()) {
+    const dateCopy = new Date(date.getTime());
+
+    const nextFriday = new Date(
+      dateCopy.setDate(
+        dateCopy.getDate() + ((7 - dateCopy.getDay() + 5) % 7 || 7)
+      )
+    );
+
+    return intervalToDuration({ start: nextFriday, end: new Date() });
+  }
+  return getNextFriday();
 }
 
 export function useCountdown(year, month, day) {
