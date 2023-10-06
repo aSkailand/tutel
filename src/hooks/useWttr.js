@@ -13,11 +13,9 @@ export function useWttr() {
     } else {
       geolocationAPI.getCurrentPosition(
         (position) => {
-          console.log(position);
           const { coords } = position;
-          setLat(coords.latitude);
-          setLong(coords.longitude);
-          codeLatLng(coords.latitude, coords.longitude);
+          setLat(coords.latitude.toFixed(7));
+          setLong(coords.longitude.toFixed(7));
         },
         (error) => {
           console.log("Something went wrong getting your position!");
@@ -29,10 +27,10 @@ export function useWttr() {
   useEffect(() => {
     getUserCoordinates();
     async function fetchWttr() {
-      const res = await fetch(`https://wttr.in/${lat},${long}?format=3`, {
+      const encodedLatAndLong = encodeURIComponent(`${lat},${long}`);
+      const res = await fetch(`https://wttr.in/stavanger?format=3`, {
         method: "GET",
       });
-
       setWttr(await res.text());
     }
 

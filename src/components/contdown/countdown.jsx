@@ -1,4 +1,4 @@
-import { formatDuration } from "date-fns";
+import { formatDistance } from "date-fns";
 import { nb } from "date-fns/locale";
 import { useCountdown } from "../../hooks/useCountdown";
 
@@ -6,14 +6,11 @@ export function Countdown({ year, month, day }) {
   const duration = useCountdown(year, month, day);
   return (
     <h2 className="countdown-header">
-      {duration.days === 7 ? (
-        <>Fredag 😀👍</>
-      ) : (
-        formatDuration(duration, {
-          delimiter: ", ",
-          locale: nb,
-        })
-      )}
+      {formatDistance(new Date(year, month - 1, day), new Date(), {
+        delimiter: ", ",
+        addSuffix: true,
+        locale: nb,
+      })}
     </h2>
   );
 }
