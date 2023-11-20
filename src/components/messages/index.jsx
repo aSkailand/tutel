@@ -20,6 +20,7 @@ const handlePrompt = (callback) => {
 
 export function Messages() {
   const [messages, setMessages] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
 
   const fetchMessages = async () => {
     const response = await fetch(`${tutelEndpoint}/get`, {
@@ -30,17 +31,51 @@ export function Messages() {
     });
 
     const data = await response.json();
+    setIsFetching(false);
     setMessages(data.result);
   };
   useEffect(() => {
-    fetchMessages();
+    try {
+      setIsFetching(true);
+      fetchMessages();
+    } catch (error) {
+      console.log(error);
+      setIsFetching(false);
+      setMessages([{ tutel: "tutelbordet er nede 🐢" }]);
+    }
   }, []);
 
   return (
-    <div className="messages">
+    <section>
       <button onClick={() => handlePrompt(fetchMessages)}>tutle</button>
-      {messages.length > 0 &&
-        messages.map((message) => <p key={message._id}>🐢{message.tutel}🐢</p>)}
+      <div className="messages">
+        {isFetching ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            {messages.length > 0 &&
+              messages
+                .map((message) => <p key={message._id}>🐢{message.tutel}🐢</p>)
+                .reverse()}
+          </>
+        )}
+      </div>
+    </section>
+  );
+}
+
+// TODO: move to own file
+function LoadingSpinner() {
+  return (
+    <div class="lds-roller">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   );
 }
