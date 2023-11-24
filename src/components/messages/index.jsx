@@ -67,7 +67,7 @@ export function Messages() {
 // TODO: move to own file
 function LoadingSpinner() {
   return (
-    <div class="lds-roller">
+    <div className="lds-roller">
       <div></div>
       <div></div>
       <div></div>
