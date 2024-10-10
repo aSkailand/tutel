@@ -114,8 +114,14 @@ button:hover:after {
 }
 
 .messages {
-  height: 300px;
+  border: solid red;
+  border-radius: 10px;
+  margin-top: 48px;
+  height: 400px;
+  max-width: 400px;
   overflow: scroll;
+  line-break: auto;
+  word-break: break-all;
 }
 
 /* lds-roller */

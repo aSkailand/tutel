@@ -10,11 +10,22 @@ function App() {
   const wttr = useWttr();
   return (
     <main className="App">
-      {isFriday && <Firday />}
+      {isFriday ? (
+        <>
+          <Firday />
+          <Firday />
+          <Firday />
+          <Firday />
+          <Firday />
+        </>
+      ) : (
+        <Firday not />
+      )}
+
       {typeof wttr !== "object" ? wttr : "tutel wttr 👍 ..."}
-      <h2>tutelbord </h2>
+      <h3>tutelbord </h3>
       <Countdown year={2023} month={12} day={15} />
-      <h1 className="react">🐢tutel🐢</h1>
+      <h2 className="react">🐢tutel🐢</h2>
       <Messages />
     </main>
   );

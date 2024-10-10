@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./friday.css";
 
-export const Firday = () => {
+export const Firday = ({ not }) => {
   const [y, setY] = useState(0);
   const [x, setX] = useState(0);
 
@@ -9,7 +9,7 @@ export const Firday = () => {
   const [availSpace_V] = useState(window.innerWidth - 20);
 
   useEffect(() => {
-    var changeInterval = 3000; // Time has to be in miliseconds. So, 3000 is 3 seconds
+    var changeInterval = not ? 2000 : 500; // Time has to be in miliseconds. So, 3000 is 3 seconds
     setInterval(moveImage, changeInterval);
   }, []);
 
@@ -23,13 +23,15 @@ export const Firday = () => {
     <div
       className="friday"
       style={{
+        fontSize: 24,
+        color: "yellowgreen",
         position: "absolute",
         top: `${y}px`,
         right: `${x}px`,
         rotate: `${x}deg`,
       }}
     >
-      FREDAG 😀👍
+      {not ? "ikje fredag 👎😠😤" : "FREDAG 😀👍"}
     </div>
   );
 };

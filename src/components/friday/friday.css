@@ -1,4 +1,6 @@
 .friday {
   z-index: 1000;
   font-weight: 900;
+  overflow: hidden;
+  height: auto;
 }
