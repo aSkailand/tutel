@@ -5,19 +5,20 @@ export const Firday = ({ not }) => {
   const [y, setY] = useState(0);
   const [x, setX] = useState(0);
 
-  const [availSpace_H] = useState(window.innerHeight - 20);
-  const [availSpace_V] = useState(window.innerWidth - 20);
-
   useEffect(() => {
     var changeInterval = not ? 2000 : 500; // Time has to be in miliseconds. So, 3000 is 3 seconds
     setInterval(moveImage, changeInterval);
   }, []);
 
   function moveImage() {
-    var randNum_V = Math.round(Math.random() * availSpace_V);
-    var randNum_H = Math.round(Math.random() * availSpace_H);
-    setY(randNum_V);
-    setX(randNum_H);
+    // Account for element size (approximately 200px wide, 50px tall to be safe)
+    const maxTop = window.innerHeight - 100;
+    const maxRight = window.innerWidth - 250;
+    
+    var randNum_V = Math.round(Math.random() * Math.max(0, maxRight));
+    var randNum_H = Math.round(Math.random() * Math.max(0, maxTop));
+    setY(randNum_H);
+    setX(randNum_V);
   }
   return (
     <div

@@ -22,7 +22,7 @@ function App() {
         <Firday not />
       )}
 
-      {typeof wttr !== "object" ? wttr : "tutel wttr 👍 ..."}
+      <div>{typeof wttr === "string" ? wttr : "tutel wttr 👍 ..."}</div>
       <h3>tutelbord </h3>
       <Countdown year={2025} month={11} day={14} />
       <h2 className="react">🐢tutel🐢</h2>

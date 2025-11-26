@@ -28,8 +28,9 @@ export function useWttr() {
     getUserCoordinates();
     async function fetchWttr() {
       const encodedLatAndLong = encodeURIComponent(`${lat},${long}`);
-      const res = await fetch(`https://wttr.in/stavanger?format=3`, {
+      const res = await fetch(`https://wttr.in/stavanger?format=1`, {
         method: "GET",
+        "Acces-Control-Allow-Origin": "*",
       });
       setWttr(await res.text());
     }
